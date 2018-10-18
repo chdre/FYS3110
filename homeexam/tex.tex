@@ -1,0 +1,219 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{float}
+\usepackage[caption = false]{subfig}
+\usepackage[parfill]{parskip}
+\usepackage{url}
+\usepackage{physics}
+
+
+
+
+\title{Hjemmeeksamen FYS2140}
+\author{Kandidatnr: }
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\section{ }
+\subsection{ }
+
+\section{Second task}
+\subsection{ }
+Probability given by
+%
+\begin{equation*}
+P = |\langle \chi_1 | \psi\rangle|^2 = \langle \psi | \chi_1\rangle \langle \chi_1|\psi \rangle.
+\end{equation*}
+%
+Starting by calculating $\langle \chi_1 | \psi \rangle$, where we use tensor notation for the states $|\chi_1\rangle $ and $|\psi\rangle$. For $|\chi_1\rangle$ we get
+%
+\begin{equation*}
+|\chi_1\rangle = \frac{1}{\sqrt{2}}\left(|\uparrow_1 \downarrow
+_2 \rangle - |\downarrow_1\uparrow
+_2 \rangle = |\uparrow
+_1 \rangle \otimes |\downarrow_2 \rangle \otimes I - |\downarrow_1 \rangle \otimes |\uparrow_2 \rangle \otimes I
+ \right) ,
+\end{equation*}
+where $I$ is the unity matrix.  We then get
+%
+\begin{align*}
+\langle \chi_1 | \psi \rangle &= \frac{1}{\sqrt{2}}\left(\langle \uparrow_1 | \otimes \langle \downarrow _2 | \otimes I - \langle \downarrow _1 | \otimes \langle \uparrow_2 | \otimes I\right) \\
+&\times \frac{\alpha}{\sqrt{2}}\left(|\downarrow_1\rangle \otimes |\uparrow_2\rangle \otimes |\downarrow_3 \rangle \otimes |\downarrow_3 \rangle - |\downarrow_1\rangle \otimes |\downarrow_2 \rangle \right) \\
+&+\frac{1}{\sqrt{2}}\left(\langle \uparrow_1 | \otimes \langle \downarrow _2 | \otimes I - \langle \downarrow _1 | \otimes \langle \uparrow_2 | \otimes I\right) \\
+&\times \frac{\beta}{\sqrt{2}}\left(|\uparrow_1\rangle \otimes |\uparrow_2\rangle \otimes |\downarrow_3\rangle - |\uparrow_1\rangle \otimes |\downarrow_2 \rangle \otimes |\uparrow_3\rangle\right).
+\end{align*}
+When evaluating the terms above we get zero unless the spins-1/2's are the same for the bra and the ket (e.g $\langle \uparrow | \downarrow \rangle = 0$, for all combinations) while we get one when the spins-1/2's are the same (e.g. $\langle \uparrow | \uparrow
+\rangle = 1$, for all combinations). We then get
+%
+\begin{align*}
+\langle \chi_1 | \psi \rangle &= \frac{\alpha}{2}\left(-\langle\downarrow_1|\downarrow_1\rangle \otimes \langle \uparrow_2|\uparrow_2\rangle \otimes |\downarrow_3\rangle\right) + \frac{\beta}{2}\left(-\uparrow_1|\uparrow_1\rangle \otimes \langle \downarrow_2|\downarrow_2\rangle \otimes |\uparrow_3\rangle \right) \\
+&= -\frac{\alpha}{2}|\downarrow_3\rangle - \frac{\beta}{2}|\uparrow_3\rangle.
+\end{align*}
+%
+We then conjugate the above and get
+%
+\begin{align*}
+\left(\langle \chi_1 |\psi\rangle \right)^* = \langle \psi | \chi_1 \rangle = -\frac{\alpha^*}{2} |\uparrow_3\rangle - \frac{\beta^*}{2}|\downarrow_3\rangle ,
+\end{align*}
+%
+which leads to the probability
+%
+\begin{align*}
+P &= \langle \psi | \chi_1\rangle \langle \chi_1|\psi \rangle = \left(-\frac{\alpha^*}{2}|\downarrow_3\rangle - \frac{\beta^*}{2}|\uparrow_3\rangle\right) \left( -\frac{\alpha}{2} |\uparrow_3\rangle - \frac{\beta}{2}|\downarrow_3\rangle\right) \\
+&= \frac{\alpha^2}{4}\langle \downarrow_3 |\downarrow_3 \rangle + \frac{\alpha^* \beta}{4}\langle \downarrow_3 |\uparrow_3\rangle + \frac{\alpha \beta^*}{4}\langle \downarrow_3 |\uparrow_3\rangle + \frac{\beta^2}{4}\langle\uparrow_3 | \uparrow_3\rangle \\
+&= \frac{1}{4} \left(\alpha^2 + \beta^2\right) \\
+&= \frac{1}{4},
+\end{align*}
+where we used the fact that $|\alpha|^2 + |\beta|^2 = 1$ and evaluated the brakets as stated above. The probability of getting the measurement $v_1$ is $1/4$.
+
+\subsection{ }
+The state of the spin at location three is given by the projection of the state $|\chi_1 \rangle$ onto the state $|\psi \rangle$, which is given by
+%
+\begin{align*}
+|\chi_1\rangle \langle \chi_1 | \psi \rangle &= \frac{1}{\sqrt{2}}\left(|\uparrow_1 \downarrow_2 \rangle - |\downarrow_1 \uparrow_2\rangle\right)\left(-\frac{\alpha}{2}|\downarrow_3\rangle - \frac{\beta}{2}|\uparrow_3\rangle\right) \\
+&= \frac{1}{\sqrt{2}}\left(-\frac{\alpha}{2}|\uparrow_1 \downarrow_2 \downarrow_3\rangle  + \frac{\beta}{2}|\downarrow_1\uparrow_2 \uparrow_3\rangle - \frac{\beta}{2}|\uparrow_1\downarrow_2\uparrow_3\rangle + \frac{\alpha}{2} |\downarrow_1\uparrow_2\downarrow_3\right) \\
+&= \frac{1}{2\sqrt{2}}\big[\left(\alpha(|\downarrow_1\uparrow_2\downarrow_3\rangle - |\uparrow_1\downarrow_2\downarrow_3\rangle\right) +  \beta\left(|\downarrow_1 \uparrow_2 \uparrow_2\rangle - |\uparrow_1 \downarrow_2\uparrow_3\rangle\right)\big] \\
+&= |\psi'\rangle,
+\end{align*}
+where we have named the new state $\psi'$. The indices of the spin-1/2's are now dropped, consider them to be in the order as mentioned in the problem set unless it is specified to be otherwise. We then normalize for a normalization constant A
+%
+
+\begin{align*}
+1 &= |A|^2 \braket{\psi'}{\psi'}  = \frac{1}{16}\big(\alpha^* \left(\bra{\downarrow \uparrow \downarrow} - \bra{\uparrow\downarrow\downarrow}\right) + \beta^* \left(\bra{\downarrow\uparrow\uparrow} - \bra{\uparrow\downarrow\uparrow}\right)\big)\\
+&\times \big( 
+\alpha\left(\ket{\downarrow\uparrow\downarrow} - \ket{\uparrow\downarrow\downarrow}\right) + \beta\left( \ket{\downarrow\uparrow\uparrow} - \ket{\uparrow\downarrow\uparrow}\right)\big),
+\end{align*}
+%
+multiplying the terms, notice that the terms with $\alpha^*\beta$ and $\alpha\beta^*$ does not share a bra and ket with identical spin-1/2 state, and therefore the braket is zero. We then get 
+%
+\begin{align*}
+1 = \frac{1}{16} \left(|\alpha|^2\left(\bra{\downarrow\uparrow\downarrow} - \bra{\uparrow\downarrow\downarrow}\right)\left(\ket{\downarrow\uparrow\downarrow} - \ket{\uparrow\downarrow\downarrow}\right) + |\beta|^2\left(\bra{\downarrow\uparrow\uparrow} - \bra{\uparrow\downarrow\uparrow}\right)\left(\ket{\downarrow\uparrow\uparrow} - \ket{\uparrow\downarrow\uparrow}\right)\right),
+\end{align*}
+%
+which by previous arguments regarding the equality of the spin-1/2 states for the bra and the ket gives
+%
+\begin{align*}
+1 &= |A|^2 \frac{1}{16}|\alpha|^2\left(\braket{\downarrow\uparrow\downarrow}{\downarrow\uparrow\downarrow} + \braket{\uparrow\downarrow\downarrow}{\uparrow\downarrow\downarrow}\right) + |\beta|^2\left(\braket{\downarrow\uparrow\uparrow}{\downarrow\uparrow\uparrow} + \braket{\uparrow\downarrow\uparrow}{\uparrow\downarrow\uparrow}\right) \\
+&= \frac{|A|^2}{16}\left( 2|\alpha|^2 + 2|\beta|^2\right) \\
+&= \frac{|A|^2}{8}.
+\end{align*}
+%
+The normalization constant is $A = \sqrt{8} = 2\sqrt{2}$. So the normalized state is
+%
+\begin{align*}
+\ket{\psi''} = \alpha\left(\ket{\downarrow\uparrow\downarrow} - \ket{\uparrow\downarrow\downarrow}\right) + \beta\left(\ket{\downarrow\uparrow\uparrow} - \ket{\uparrow\downarrow\uparrow}\right).
+\end{align*}
+
+\subsection{ }
+We write the state $\ket{\chi}$ as a product of two spin-0 states
+%
+\begin{align*}
+\ket{\chi} = \ket{\chi_{14}} \otimes \ket{\chi_{23}},
+\end{align*}
+%
+where we know that the spin-0 state
+%
+\begin{align*}
+\ket{\chi_{23}} = \frac{1}{\sqrt{2}}\left(\ket{\uparrow_2\downarrow_3} - \ket{\downarrow_2 \downarrow_3}\right).
+\end{align*}
+%
+We construct a spin-0 state
+%
+\begin{align*}
+\ket{\chi_{14}} = \frac{1}{\sqrt{2}}\left(\ket{\uparrow_1 \downarrow_4} - \ket{\downarrow_1 \uparrow_4}\right).
+\end{align*}
+%
+This yields
+%
+\begin{align*}
+\ket{\chi} &= \frac{1}{2}\left(\ket{\uparrow_2\downarrow_3} - \ket{\downarrow_2\uparrow_3}\right)\left(\ket
+{\uparrow_1\downarrow_4} - \ket{\downarrow_1\uparrow_4}\right),
+\end{align*}
+%
+which when multiplying out yields
+%
+\begin{align*}
+\ket{\chi} &= \frac{1}{2}\left( \ket{\uparrow_2\downarrow_3} \otimes \ket{\uparrow_1\downarrow_4} - \ket{\uparrow_2 \downarrow_3} \otimes \ket{\downarrow_1\uparrow_4} - \ket{\downarrow_2\uparrow_3} \otimes \ket{\uparrow_1\downarrow_4} + \ket{\downarrow_2\uparrow_3} \otimes \ket{\downarrow_1 \uparrow_4}\right) \\
+&= \frac{1}{2}\left( \ket{\uparrow\uparrow\downarrow\downarrow} - \ket{\downarrow\uparrow\downarrow\uparrow} - \ket{\uparrow\downarrow\uparrow\downarrow} + \ket{\downarrow\downarrow\uparrow\uparrow}\right)
+\end{align*}
+
+\subsection{ }
+The spin states are written as $\ket{sm_s}$, where $s$ is the quantum number for total spin and $m_s$ is the quantum number for magnetic spin. For a state of four spin-1/2's we have $s = 2$, $1$ or $0$. The allowed values for $m_s$ are $m = -s, -s+1, \dots, 0, \dots s-1, s$. The eigenvalues for the spin operator $S_{tot}$ are $\hbar^2s(s+1)$, which when applied on a spin state gives $S_{tot}^2\ket{sm_s} = \hbar^2s(s+1)\ket{sm_s}$. For $s = 2$ we get
+%
+\begin{align*}
+\hat{H}\ket{2m_s} = \frac{J}{24\hbar^4}\left(S_{tot}^2 - 2\hbar^2\right)S_{tot}^2\ket{2m_s} 
+\end{align*}
+%
+where we now get the eigenvalues when applying the spin operator $S_{tot}^2$ on the state $\ket{2m_s}$, which yields
+%
+\begin{align*}
+\hat{H}\ket{2m_s} &= \frac{J}{24\hbar^4}\left(S_{tot}^2 - 2\hbar^2\right)\hbar^22(2+1)\ket{2m_s} \\
+&= \frac{J}{24\hbar^4} 6\hbar^2\left(S_{tot}^2\ket{2m_s} - 2\hbar^2\ket{2m_s}\right) \\
+&= \frac{J}{4\hbar^2}\left(\hbar^2 2\left(2 + 1\right) - 2\hbar^2\right)\ket{2m_s} \\
+&= \frac{J}{4\hbar^2}\hbar^2\left(6-2\right)\ket{2m_s} \\
+&= J\ket{2m_s},
+\end{align*}
+the energy 
+%
+For $s = 1$ we get
+%
+\begin{align*}
+\hat{H}\ket{1m_s} &= \frac{J}{24\hbar^4}\left(S_{tot}^2 - 2\hbar^2\right)S_{tot}^2\ket{1m_s}  \\
+&= \frac{J}{24\hbar^4}\left(S_{tot}^2 - 2\hbar^2\right)\hbar^2 1\left(1+1\right)\ket{1m_s} \\
+&= \frac{J}{12\hbar^2}\left(S_{tot}^2\ket{1m_s} - 2\hbar^2\ket{1m_s}\right) \\
+&= \frac{J}{12\hbar^2}2\hbar^2\left(1-1\right)\ket{1m_s} \\
+&= 0\ket{0m_s}.
+\end{align*}
+%
+For $s=0$ we see that the equation is multiplied by $0$, which yields the energy eigenvalue 0.
+For the energy eigenvalue J we have 5 possible values for $m_s$ with $s=2$, the possible states are $\ket{2-2}$, $\ket{2-1}$, $\ket{20}$, $\ket{21}$ and $\ket{22}$, and the degeneracy is 5 fold. For the energy eigenvalue 0 we have 3 states for $s=1$, which are $\ket{1-1}$, $\ket{10}$ and $\ket{11}$ and further there is one state for $s=0$, that is $\ket{00}$, so the degeneracy for the energy eigenvalue 0 is 4 fold.
+
+\subsection{ }
+We have the projection operator for spin-1/2's at 1 and 2 as
+%
+\begin{align*}
+P_{12} = \ket{+}_{12}\bra{\uparrow_1 \uparrow_2} + \ket{0}_{12}\frac{1}{\sqrt{2}}\left(\bra{\uparrow_1\downarrow_2} + \bra{\downarrow_1\uparrow_2}\right) + \ket{-}_{12}\bra{\downarrow_1\uparrow_2},
+\end{align*}
+% 
+and for the spin-1/2's at location 3 and 4
+%
+\begin{align*}
+P_{34} = \ket{+}_{34} \bra{\uparrow_3\uparrow_4} + \ket{0}_{34} \frac{1}{\sqrt{2}} \left(\bra{\uparrow_3 \downarrow_4} + \bra{\downarrow_3 \uparrow_4}\right) + \ket{-}_{34}\bra{\downarrow_3\uparrow_4}.
+\end{align*}
+%
+First calculating $P_{34}\ket{\chi}$:
+%
+\begin{align*}
+P_{34}\ket{\chi} &= \left(\ket{+}_{34} \bra{\uparrow_3\uparrow_4} + \ket{0}_{34} \frac{1}{\sqrt{2}} \left(\bra{\uparrow_3 \downarrow_4} + \bra{\downarrow_3 \uparrow_4}\right) + \ket{-}_{34}\bra{\downarrow_3\uparrow_4}\right) \\
+&\times  \left(\frac{1}{2}\left( \ket{\uparrow\uparrow\downarrow\downarrow} - \ket{\downarrow\uparrow\downarrow\uparrow} - \ket{\uparrow\downarrow\uparrow\downarrow} + \ket{\downarrow\downarrow\uparrow\uparrow}\right)\right),
+\end{align*}
+%
+again there are terms that are equal to zero and ones when setting specific bra's and ket's together. The specifics of the calculations are done as the following example
+%
+\begin{align*}
+\braket{\uparrow_3\uparrow_4}{\uparrow\uparrow\downarrow\downarrow} &= \left(I \otimes I \otimes \bra{\uparrow_3} \otimes \bra{\uparrow_4}\right) \left( \ket{\uparrow_1} \otimes \ket{\uparrow_2} \otimes \ket{\downarrow_3} \otimes \ket{\downarrow_4}\right) \\
+&= I\ket{\uparrow_1} \otimes I\ket{\uparrow_2} \otimes \braket{\uparrow_3}{\downarrow_3} \otimes \braket{\uparrow_4}{\downarrow_4} \\
+&= \ket{\uparrow_1 \uparrow_2}.
+\end{align*}
+%
+Going further with the calculation we get
+%
+\begin{align*}
+P_{34}\ket{\chi} = \frac{1}{2}\left( \ket{+}\braket{\uparrow_3\uparrow_4}{\downarrow\downarrow\uparrow\uparrow} - \frac{1}{\sqrt{2}}\left(\braket{\uparrow_3 \downarrow_4}{\uparrow\downarrow\uparrow\downarrow} + \braket{\downarrow_3 \uparrow_4}{\downarrow\uparrow\downarrow\uparrow} \right)\right)
+\end{align*}
+
+
+
+
+
+
+
+
+\end{document}
